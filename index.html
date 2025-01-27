@@ -55,6 +55,41 @@ document.addEventListener( "alpine:init", () => {
 					</div>
 				</div>
       </div>
+			
+			<p>
+				As an Alpine package, we'll only need to pull the package down via npm
+				(or include it at the &lt;script&gt; tag in the top of the page)
+				and decorate the HTML with the tags needed to turn on our file handler.
+				The second method is detailed below:
+			</p>
+
+			<pre>
+&lt;script defer src="/path/to/alpine.js"&gt;&lt;/script&gt;
+&lt;script src="/path/to/filehandler.js"&gt;&lt;/script&gt;
+			</pre>
+
+			<p>
+				Start by dropping the <code>x-filedrop</code> decorator into your 
+				HTML somewhere.  This will turn your div into a "drop zone" for whatever
+				media you plan to accept in your app. 
+				Here we've used a <code>&lt;div&gt;</code> decorated with a 
+				<code>drophandler</code> class.
+				(In our case, a &lt;div&gt; with the class <code>drophandler</code>.)
+			</p>
+
+<pre>
+&lt;div class="filehandler"&gt;
+  &lt;div class="drophandler" x-filedrop&gt; 
+    &lt;div&gt;Drop your images here.&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;div x-show='$filedata?.url'&gt;
+      &lt;img :src="$filedata?.url"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
 		</section>
 
 		<section>
@@ -66,21 +101,60 @@ document.addEventListener( "alpine:init", () => {
 					<input type="hidden" name="noticebanner" :value="$filedata?.url">
 				</div>
 				<div style="padding: 10px; background:#ccc; border:1px solid white; display: inline-block;">
-					<img :src="$filedata?.url">
+					<div x-show='$filedata?.url'>
+						<img :src="$filedata?.url">
+					</div>
 				</div>
       </div>
 		</section>
 
 		<section>
-		With Alpine, the code to do this is incredibly simple.
+			<p>Like our drag and drop example, it's pretty easy to get this going as well.</p>
+
+			<pre>
+&lt;div class="filehandler"&gt;
+  &lt;div class="drophandler" x-filesink&gt; 
+    &lt;div&gt;Drop your images here.&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;div x-show='$filedata?.url'&gt;
+      &lt;img :src="$filedata?.url"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+		</pre>
+
+			<p>
+			Drop the <code>x-filesink</code> decorator into your HTML somewhere.  
+			(In our case, a &lt;div&gt; with the class <code>drophandler</code>.)
+			</p>
 		</section>
 
 		<section>
 			<h2>To Do</h2>
+<p>
 			<ul>
-				<li>Limit scope</li>
+				<li>Limit scope of each decorator</li>
 				<li>Add effects on load</li>
 			</ul>
+</p>
+		</section>
+
+
+		<section>
+			<h2>Got Questions?</h2>
+			<p>
+			If you are having some issues using this, send me a message below and I might be able to help out.
+			</p>
+
+			<form method="POST">
+<input name="name" placeholder="Your Name (required)">
+<input name="email" placeholder="Your Email Address (required)">
+<textarea name="inquiry" placeholder="Type a quick description of your problem here..."></textarea>
+<div>
+<input type="submit" value="Submit Inquiry">
+</div>
+			</form>
 		</section>
 
 	</div>
@@ -89,7 +163,10 @@ document.addEventListener( "alpine:init", () => {
 
 
 <footer>
-&copy; 2025 Antonio R. Collins II (ramar@rwkapps.com / ramar@ramar.work)
+	&copy; 2025 Antonio R. Collins II (
+	<a href="mailto:ramar@rwkapps.com">ramar@rwkapps.com</a> / 
+	<a href="mailto:ramar@ramar.work">ramar@ramar.work</a>)<br>
+	See more at <a href="https://rwkapps.com">rwkapps.com</a>
 </footer>
 
 </body>
