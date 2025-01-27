@@ -1,0 +1,29 @@
+{
+  "name": "rwk_filehandler",
+  "version": "1.0.0",
+  "description": "A file handler plugin for AlpineJS.",
+  "main": "filehandler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramar-work/rwk_filehandler.git"
+  },
+  "keywords": [
+    "file",
+    "api",
+    "files",
+    "inline",
+    "drop-in"
+  ],
+  "author": "Antonio Ramar Collins II (ramar@rwkapps.com or ramar@ramar.work)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramar-work/rwk_filehandler/issues"
+  },
+  "homepage": "https://github.com/ramar-work/rwk_filehandler#readme",
+  "devDependencies": {
+    "playwright": "^1.50.0"
+  }
+}

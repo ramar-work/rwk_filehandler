@@ -1,0 +1,98 @@
+<html>
+
+
+<head>
+<title>File Handler Demo & Docs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/index.css">
+<script defer src="./assets/alpine.min.js"></script>
+<script src="./filehandler.js"></script>
+
+<script>
+// All of our example code can go here
+document.addEventListener( "alpine:init", () => {
+	Alpine.data( 'app', () => {
+		console.log( 'drop the drop' );
+	})
+})
+</script>
+</head>
+
+
+<body>
+
+<header>
+<div>
+<a href="/">Home</a>
+<a href="/">Simple</a>
+<a href="/">Advanced</a>
+<a href="/">Help</a>
+</div>
+</header>
+
+
+<main class="pagebody" x-data="{}"> 
+
+	<div class="container">
+		<section>
+			<h1>File Handler</h1>
+			<p>A really simple file handler.</p>
+		</section>
+
+		<section>
+			<h2>Drag & Drop</h2>
+			<p>Need to do some simple drag and drop of files in your app?  Try this plugin.</p>
+
+			<div class="filehandler">
+				<div class="drophandler" x-filedrop> 
+					<div>Drop your images here.</div>
+				</div>
+				<div style="position: relative; padding: 10px; background:#ccc; border:1px solid white; display: inline-block;">
+					<div x-show='$filedata?.url'>
+						<img :src="$filedata?.url">
+					</div>
+				</div>
+      </div>
+		</section>
+
+		<section>
+			<h2>Explicit Button</h2>
+			<p>The old-school button pressing way is also supported too.</p>
+			<div class="filehandler">
+				<div> 
+					<input type="file" name="uibanner" style="width: 150px;" x-filesink>
+					<input type="hidden" name="noticebanner" :value="$filedata?.url">
+				</div>
+				<div style="padding: 10px; background:#ccc; border:1px solid white; display: inline-block;">
+					<img :src="$filedata?.url">
+				</div>
+      </div>
+		</section>
+
+		<section>
+		With Alpine, the code to do this is incredibly simple.
+		</section>
+
+		<section>
+			<h2>To Do</h2>
+			<ul>
+				<li>Limit scope</li>
+				<li>Add effects on load</li>
+			</ul>
+		</section>
+
+	</div>
+
+</main>
+
+
+<footer>
+&copy; 2025 Antonio R. Collins II (ramar@rwkapps.com / ramar@ramar.work)
+</footer>
+
+</body>
+
+
+</html>
